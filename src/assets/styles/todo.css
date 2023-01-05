@@ -1,0 +1,106 @@
+.Container{
+    width: 80vh;
+    height: auto;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #DBA39A;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+.Form{
+    width: 50%;
+    height: 40%;
+    background-color: #F0DBDB;
+    border-radius: 7px;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.Form h1{
+    text-align: center;
+    margin-bottom: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: 45px;
+    margin-top: 0;
+    color: #795936;
+    background-color: #f5efef;
+    width: 100%;
+}
+
+.Form p{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    color: #634525;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 0;
+    padding: 0;
+}
+
+.Form input{
+    width: 60%;
+    height: 20px;
+    border-radius: 7px 0 0 7px;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    color: #634525;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.error{
+    color: red;
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.Form button{
+    width: 33.33%;
+    height: 40px;
+    border-radius: 0 7px 7px 0;
+    border: none;
+    /* padding: 10px; */
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    color: #634525;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    background-color: #f5efef;
+    cursor: pointer;
+}
+
+.Form button:hover{
+    background-color: #DBA39A;
+    color: #ffffff;
+}
+
+.todo-list{
+    width: 50%;
+    height: auto;
+    /* height: 40%; */
+    max-height: 100vh;
+    background-color: #f5efef;
+    border-radius: 7px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+
