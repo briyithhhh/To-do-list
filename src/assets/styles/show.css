@@ -55,3 +55,41 @@
 #comple{
   border-radius: 7px 0  0 7px;
 }
+
+.editForm input{
+  width: 40%;
+  height: 20px;
+  border-radius: 7px 0 0 7px;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+  color: #634525;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.btn-e{
+  width: 26.87%;
+    height: 40px;
+    border-radius: 0 7px 7px 0;
+    border: none;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-style: italic; */
+    color: #634525;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    background-color: #F0DBDB;
+    cursor: pointer;
+    padding-right: 1px;
+}
+
+.btn-e:hover{
+  background-color: #d6998f;
+}
+
+#save{
+  border-radius: 0;
+}

@@ -24,6 +24,7 @@ export default function Todo () {
   function handleSubmit (e) {
     e.preventDefault()
     const newTodo = {
+      id: todos.length + 1,
       title,
       completed: false
     }
@@ -75,6 +76,7 @@ export default function Todo () {
                 )
               : null}
             <Field
+              onChange={handleChange}
               name='todo'
               className='input'
               type='text'
@@ -92,7 +94,7 @@ export default function Todo () {
       </Formik>
 
       <div className='todo-list'>
-        {todos.map(item => (
+        {todos.map((item) => (
           <Show
             key={item.id}
             item={item}

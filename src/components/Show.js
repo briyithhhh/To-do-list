@@ -23,9 +23,9 @@ export default function Show ({ item, onUpdate, onDelete }) {
 
     return (
       <form className='editForm' onSubmit={handleSubmit}>
-        <input type='text' className='todoInput' onChange={handleChange} value={newValue} />
-        <button className='save' onClick={handelClickUpdate}>Save✅</button>
-        <button className='cancel' onClick={() => setIsEdit(false)}>Cancel</button>
+        <input type='text' onChange={handleChange} value={newValue} />
+        <button className='btn-e' id='save' onClick={handelClickUpdate}>Save✅</button>
+        <button className='btn-e' id='delet' onClick={() => setIsEdit(false)}>Cancel❌</button>
       </form>
     )
   }

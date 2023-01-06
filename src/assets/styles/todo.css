@@ -1,7 +1,6 @@
 .Container{
     width: 80vh;
-    height: auto;
-    max-height: 100vh;
+    max-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +95,7 @@ input:focus{
     width: 50%;
     height: auto;
     /* height: 40%; */
-    max-height: 100vh;
+    max-height: auto;
     background-color: #f5efef;
     border-radius: 7px;
     padding: 30px;
