@@ -1,4 +1,4 @@
-.Container {
+.Container{
     width: 80vh;
     max-height: auto;
     display: flex;
@@ -7,10 +7,10 @@
     align-items: center;
     background-color: #DBA39A;
     border-radius: 7px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
 
-.Form {
+.Form{
     width: 50%;
     height: 40%;
     background-color: #F0DBDB;
@@ -20,10 +20,10 @@
     margin-bottom: 5px;
 }
 
-.Form h1 {
+.Form h1{
     text-align: center;
     margin-bottom: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     font-size: 45px;
     margin-top: 0;
@@ -32,7 +32,7 @@
     width: 100%;
 }
 
-.Form p {
+.Form p{
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
@@ -43,7 +43,7 @@
     padding: 0;
 }
 
-.Form input {
+.Form input{
     width: 60%;
     height: 20px;
     border-radius: 7px 0 0 7px;
@@ -57,11 +57,11 @@
     margin-top: 5px;
 }
 
-input:focus {
+input:focus{
     outline: none;
 }
 
-.error {
+.error{
     color: red;
     font-size: 17px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -70,7 +70,7 @@ input:focus {
     margin-top: 0px;
 }
 
-.Form button {
+.Form button{
     width: 33.33%;
     height: 40px;
     border-radius: 0 7px 7px 0;
@@ -86,12 +86,12 @@ input:focus {
     cursor: pointer;
 }
 
-.Form button:hover {
+.Form button:hover{
     background-color: #DBA39A;
     color: #ffffff;
 }
 
-.todo-list {
+.todo-list{
     width: 50%;
     height: auto;
     /* height: 40%; */
@@ -102,104 +102,4 @@ input:focus {
     margin-bottom: 20px;
 }
 
-.todoInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 10px 0;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 7px;
-}
 
-.todoInfo ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.todoInfo ul li {
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #634525;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.todoInfo ul li::before {
-    content: "📌";
-}
-
-.btn {
-    background-color: #F0DBDB;
-    border: none;
-    border-radius: 7px;
-    padding: 10px;
-    font-size: 20px;
-    color: #332c2c;
-    margin: 0;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #d6998f;
-}
-
-#edit {
-    border-radius: 0%;
-}
-
-#delete {
-    border-radius: 0 7px 7px 0;
-}
-
-#comple {
-    border-radius: 7px 0 0 7px;
-}
-
-.editForm input {
-    width: 40%;
-    height: 20px;
-    border-radius: 7px 0 0 7px;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic;
-    color: #634525;
-    margin-bottom: 0px;
-    margin-top: 5px;
-}
-
-.btn-e {
-    width: 26.87%;
-    height: 40px;
-    border-radius: 0 7px 7px 0;
-    border: none;
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* font-style: italic; */
-    color: #634525;
-    margin-bottom: 0px;
-    margin-top: 5px;
-    background-color: #F0DBDB;
-    cursor: pointer;
-    padding-right: 1px;
-}
-
-.btn-e:hover {
-    background-color: #d6998f;
-}
-
-#save {
-    border-radius: 0;
-}
-
-.completed {
-    background-color: #332c2c;
-    color:aqua
-}

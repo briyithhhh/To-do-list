@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react'
+import Show from './Show'
 import '../assets/styles/todo.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
@@ -13,39 +14,42 @@ const validation = Yup.object().shape({
 })
 
 export default function Todo () {
+  const [title, setTitle] = useState('')
   const [todos, setTodos] = useState([])
-  const [edit, setEdit] = useState({
-    isEdit: false,
-    id: null,
-    title: ''
-  })
 
-  function unshift (element, last) {
-    return (
-      last ? [element, ...last] : [element]
-    )
+  function handleChange (e) {
+    const value = e.target.value
+    setTitle(value)
   }
+  function handleSubmit (e) {
+    e.preventDefault()
+    const newTodo = {
+      id: todos.length + 1,
+      title,
+      completed: false
+    }
+    const temp = [...todos]
+    temp.unshift(newTodo)
 
+    setTodos(temp)
+    setTitle('')
+  }
   function handleUpdate (id, Value) {
     const temp = [...todos]
-    const item = temp.filter(item => item.id === id)
-    const itemFilter = temp.filter(item => item.id !== id)
-    item.todo = Value
-    setTodos(unshift(item, itemFilter))
-    setEdit({ isEdit: false, id: null, title: '' })
+    const item = temp.find((item) => item.id === id)
+    item.title = Value
+    setTodos(temp)
   }
-  function handleDelete (todoId) {
-    const temp = [...todos]
-    const item = temp.filter((item) => item.id === todoId)
-    setTodos(item)
+  function handleDelete (id) {
+    const temp = todos.filter(item => item.id !== id)
+    setTodos(temp)
   }
 
   return (
     <div className='Container' style={{ margin: '25vh auto' }}>
       <Formik
         initialValues={{
-          id: 0,
-          todo: 'adawd',
+          todo: '',
           completed: false
         }}
         validationSchema={validation}
@@ -53,7 +57,6 @@ export default function Todo () {
           console.log(values)
           actions.resetForm({
             values: {
-              id: todos.length + 1,
               todo: '',
               completed: false
             }
@@ -73,6 +76,7 @@ export default function Todo () {
                 )
               : null}
             <Field
+              onChange={handleChange}
               name='todo'
               className='input'
               type='text'
@@ -90,63 +94,14 @@ export default function Todo () {
       </Formik>
 
       <div className='todo-list'>
-        {edit.isEdit
-          ? (
-            <div className='editForm'>
-              <div className='todoInfo'>
-                {todos.filter((item) => item.id === edit.id).map((item, index) => (
-                  <ul key={index}>
-                    <li>{item.todo}</li>
-                  </ul>
-                ))}
-              </div>
-              <p style={{ textAlign: 'center', fontSize: '20px' }}>🔽</p>
-              <input
-                type='text'
-                className='input'
-                placeholder='Enter your task'
-                value={edit.title}
-                onChange={(e) => setEdit({ isEdit: true, id: edit.id, title: e.target.value })}
-              />
-              <button className='btn-e' id='save' onClick={() => handleUpdate(edit.id, edit.title)}>Save✅</button>
-              <button className='btn-e' id='delet' onClick={() => setEdit({ isEdit: false, id: null, title: '' })}>Cancel❌</button>
-            </div>
-            )
-          : (
-              todos.map((item, index) => (
-                <div
-                  className={`todoInfo ${item.completed ? 'completed' : ''}`}
-                  key={index}
-                >
-                  <ul>
-                    <li>{item.todo}</li>
-                  </ul>
-                  <button
-                    className='btn'
-                    id='comple'
-                    onClick={() => {
-                      item.completed = !item.completed
-                      setTodos([...todos])
-                    }}
-                  >
-                    ✅
-                  </button>
-                  <button
-                    className='btn'
-                    id='edit'
-                    onClick={() => (setEdit({ isEdit: true, id: item.id }))}
-                  >
-                    ✏️
-                  </button>
-                  <button
-                    className='btn'
-                    id='delete'
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    🗑️
-                  </button>
-                </div>
-              )))}
+        {todos.map((item) => (
+          <Show
+            key={item.id}
+            item={item}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
     </div>
   )
