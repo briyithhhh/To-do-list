@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import '../assets/styles/todo.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
+import { RiArrowDownCircleLine } from 'react-icons/ri'
 
 const validation = Yup.object().shape({
   todo: Yup.string()
@@ -11,6 +12,13 @@ const validation = Yup.object().shape({
     .max(50, 'The task is too Long!')
     .required('The task is required!')
 })
+
+// const validationUpdate = Yup.object().shape({
+//   title: Yup.string()
+//     .min(3, 'The task is too Short!')
+//     .max(50, 'The task is too Long!')
+//     .required('The task is required!')
+// })
 
 export default function Todo () {
   const [todos, setTodos] = useState([])
@@ -45,7 +53,7 @@ export default function Todo () {
       <Formik
         initialValues={{
           id: 0,
-          todo: 'adawd',
+          todo: '',
           completed: false
         }}
         validationSchema={validation}
@@ -88,7 +96,6 @@ export default function Todo () {
           </Form>
         )}
       </Formik>
-
       <div className='todo-list'>
         {edit.isEdit
           ? (
@@ -100,11 +107,11 @@ export default function Todo () {
                   </ul>
                 ))}
               </div>
-              <p style={{ textAlign: 'center', fontSize: '20px' }}>🔽</p>
+              <p className='arrow'> <RiArrowDownCircleLine /> </p>
               <input
                 type='text'
                 className='input'
-                placeholder='Enter your task'
+                placeholder='Update your task'
                 value={edit.title}
                 onChange={(e) => setEdit({ isEdit: true, id: edit.id, title: e.target.value })}
               />

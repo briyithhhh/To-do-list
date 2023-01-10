@@ -200,6 +200,29 @@ input:focus {
 }
 
 .completed {
-    background-color: #332c2c;
-    color:aqua
+    background-color: #5ac72879;
+   
 }
+
+.completed ul li::before {
+    content: "✔";
+}
+
+.completed ul li{
+    text-decoration: line-through;
+}
+
+.arrow{
+    text-align: center;
+    font-size: 35px;
+    margin: 3px 0 3px 0;
+    color: rgb(134, 54, 8);
+}
+
+/* .arrow:active{
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+} */
