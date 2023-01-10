@@ -36,7 +36,7 @@ export default function Todo () {
   }
   function handleDelete (todoId) {
     const temp = [...todos]
-    const item = temp.filter((item) => item.id === todoId)
+    const item = temp.filter((item) => item.id !== todoId)
     setTodos(item)
   }
 
