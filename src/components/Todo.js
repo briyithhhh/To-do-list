@@ -13,12 +13,12 @@ const validation = Yup.object().shape({
     .required('The task is required!')
 })
 
-// const validationUpdate = Yup.object().shape({
-//   title: Yup.string()
-//     .min(3, 'The task is too Short!')
-//     .max(50, 'The task is too Long!')
-//     .required('The task is required!')
-// })
+const validationUpdate = Yup.object().shape({
+  title: Yup.string()
+    .min(3, 'The task update is too Short!')
+    .max(50, 'The task update is too Long!')
+    .required('The task update is required!')
+})
 
 export default function Todo () {
   const [todos, setTodos] = useState([])
@@ -99,25 +99,64 @@ export default function Todo () {
       <div className='todo-list'>
         {edit.isEdit
           ? (
-            <div className='editForm'>
-              <div className='todoInfo'>
-                {todos.filter((item) => item.id === edit.id).map((item, index) => (
-                  <ul key={index}>
-                    <li>{item.todo}</li>
-                  </ul>
-                ))}
-              </div>
-              <p className='arrow'> <RiArrowDownCircleLine /> </p>
-              <input
-                type='text'
-                className='input'
-                placeholder='Update your task'
-                value={edit.title}
-                onChange={(e) => setEdit({ isEdit: true, id: edit.id, title: e.target.value })}
-              />
-              <button className='btn-e' id='save' onClick={() => handleUpdate(edit.id, edit.title)}>Save✅</button>
-              <button className='btn-e' id='delet' onClick={() => setEdit({ isEdit: false, id: null, title: '' })}>Cancel❌</button>
-            </div>
+            <Formik
+              initialValues={{
+                title: '',
+                completed: false
+              }}
+              validationSchema={validationUpdate}
+              onSubmit={(values, actions) => {
+                console.log(values)
+                actions.resetForm({
+                  values: {
+                    title: '',
+                    completed: false
+                  }
+                })
+                const temp = [...todos]
+                temp.unshift(values)
+                setTodos(temp)
+              }}
+            >
+              {({ errors, touched }) => (
+                <Form className='editForm'>
+                  <div className='todoInfo'>
+                    {todos.filter((item) => item.id === edit.id).map((item, index) => (
+                      <ul key={index}>
+                        <li>{item.todo}</li>
+                      </ul>
+                    ))}
+                  </div>
+                  <p className='arrow'> <RiArrowDownCircleLine /> </p>
+                  {errors.todo && touched.todo
+                    ? (
+                      <div className='error'>{errors.todo}</div>
+                      )
+                    : null}
+                  <Field
+                    type='text'
+                    className='input'
+                    placeholder='Update your task'
+                    value={edit.title}
+                    onChange={(e) => setEdit({ isEdit: true, id: edit.id, title: e.target.value })}
+                  />
+                  <button
+                    className='btn-e'
+                    id='save'
+                    onClick={() => handleUpdate(edit.id, edit.title)}
+                    type='submit'
+                  >
+                    Save✅
+                  </button>
+                  <button
+                    className='btn-e'
+                    id='delet' onClick={() => setEdit({ isEdit: false, id: null, title: '' })}
+                  >
+                    Cancel❌
+                  </button>
+                </Form>
+              )}
+            </Formik>
             )
           : (
               todos.map((item, index) => (
