@@ -37,7 +37,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     color: #634525;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     text-align: center;
     margin-top: 0;
     padding: 0;
@@ -200,8 +200,7 @@ input:focus {
 }
 
 .completed {
-    background-color: #5ac72879;
-   
+    background-color: #5ac72879; 
 }
 
 .completed ul li::before {
@@ -219,10 +218,11 @@ input:focus {
     color: rgb(134, 54, 8);
 }
 
-/* .arrow:active{
-    transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-} */
+.Form .date{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    color: #44280a;
+    margin: 0;
+    margin-bottom: 15px;
+}

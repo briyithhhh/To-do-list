@@ -5,6 +5,7 @@ import '../assets/styles/todo.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { RiArrowDownCircleLine } from 'react-icons/ri'
+import moment from 'moment'
 
 const validation = Yup.object().shape({
   todo: Yup.string()
@@ -75,6 +76,7 @@ export default function Todo () {
           <Form className='Form'>
             <h1>To Do list</h1>
             <p>What you want to do today?</p>
+            <p className='date'> {moment().format('MMMM Do YYYY')} </p>
             {errors.todo && touched.todo
               ? (
                 <div className='error'>{errors.todo}</div>
