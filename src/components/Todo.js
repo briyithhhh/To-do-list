@@ -5,6 +5,11 @@ import '../assets/styles/todo.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { RiArrowDownCircleLine } from 'react-icons/ri'
+import { BsJournalCheck, BsTrash } from 'react-icons/bs'
+import { BiEditAlt } from 'react-icons/bi'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
+// import { TiDeleteOutline } from 'react-icons/ti'
+import { MdOutlineCancel } from 'react-icons/md'
 import moment from 'moment'
 
 const validation = Yup.object().shape({
@@ -103,7 +108,7 @@ export default function Todo () {
           ? (
             <Formik
               initialValues={{
-                title: '',
+                title: 'takatka',
                 completed: false
               }}
               validationSchema={validationUpdate}
@@ -129,15 +134,18 @@ export default function Todo () {
                       </ul>
                     ))}
                   </div>
-                  <p className='arrow'> <RiArrowDownCircleLine /> </p>
-                  {errors.todo && touched.todo
+                  <p className='arrow'>
+                    <RiArrowDownCircleLine />
+                  </p>
+                  {errors.title && touched.title
                     ? (
-                      <div className='error'>{errors.todo}</div>
+                      <div className='error'>{errors.title}</div>
                       )
                     : null}
                   <Field
                     type='text'
                     className='input'
+                    autoComplete='off'
                     placeholder='Update your task'
                     value={edit.title}
                     onChange={(e) => setEdit({ isEdit: true, id: edit.id, title: e.target.value })}
@@ -148,13 +156,13 @@ export default function Todo () {
                     onClick={() => handleUpdate(edit.id, edit.title)}
                     type='submit'
                   >
-                    Save✅
+                    <AiOutlineCheckCircle />
                   </button>
                   <button
                     className='btn-e'
                     id='delet' onClick={() => setEdit({ isEdit: false, id: null, title: '' })}
                   >
-                    Cancel❌
+                    <MdOutlineCancel />
                   </button>
                 </Form>
               )}
@@ -177,21 +185,21 @@ export default function Todo () {
                       setTodos([...todos])
                     }}
                   >
-                    ✅
+                    <BsJournalCheck />
                   </button>
                   <button
                     className='btn'
                     id='edit'
                     onClick={() => (setEdit({ isEdit: true, id: item.id }))}
                   >
-                    ✏️
+                    <BiEditAlt />
                   </button>
                   <button
                     className='btn'
                     id='delete'
                     onClick={() => handleDelete(item.id)}
                   >
-                    🗑️
+                    <BsTrash />
                   </button>
                 </div>
               )))}
