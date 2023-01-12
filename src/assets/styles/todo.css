@@ -147,6 +147,7 @@ input:focus {
 
 .btn:hover {
     background-color: #d6998f;
+    color: #fff4f4
 }
 
 #edit {
@@ -195,6 +196,7 @@ input:focus {
 
 .btn-e:hover {
     background-color: #d6998f;
+    color: #fff4f4
 }
 
 #save {
